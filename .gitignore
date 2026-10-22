@@ -1,0 +1,10 @@
+.env
+.venv/
+.venv311/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+*.zip
+online_retail_II.xlsx
+cleaned_retail.csv
+rfm.csv

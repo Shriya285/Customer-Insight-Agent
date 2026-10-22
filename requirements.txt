@@ -1,0 +1,9 @@
+pandas
+numpy
+seaborn
+matplotlib
+openpyxl
+python-dotenv
+langchain-core
+langchain-anthropic
+langchain-classic
