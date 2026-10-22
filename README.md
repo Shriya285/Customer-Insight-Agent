@@ -2,7 +2,6 @@
 
 A small agent that answers questions about customer segments in plain English. I built it on top of an RFM (Recency, Frequency, Monetary) analysis of the Online Retail II dataset. It uses Claude with tool calling, so the numbers it gives come from the data, not from the model's guesses.
 
-![Demo](docs/demo.png)
 
 ## What it can do
 
