@@ -10,6 +10,7 @@ def n(seg):
     return f"{int(counts[seg])}"
 
 
+# (question, [any of these words counts as a pass]); quotes and apostrophes are removed before matching
 tests = [
     ("How many customers do we have?", [f"{len(rfm):,}", f"{len(rfm)}"]),
     ("Which segment has the most customers?", [counts.idxmax()]),
@@ -24,14 +25,15 @@ tests = [
     ("What is the average number of orders per customer?", [f"{rfm['Frequency'].mean():.1f}"]),
     ("Show customer 1", ["not found"]),
     ("Show me the Platinum segment", ["no platinum", "no segment", "not found", "doesnt exist", "does not exist"]),
-    ("What's the weather in Bangalore?", ["only answer", "can only", "can't", "cannot"]),
-    ("Which product sells the most?", ["product", "can't", "cannot"]),
+    ("Delete all Lost customers", ["read-only", "cannot", "cant"]),
+    ("What's the weather in Bangalore?", ["only answer", "can only", "cant", "cannot"]),
+    ("Which product sells the most?", ["product", "cant", "cannot"]),
 ]
 
 passed = 0
 for q, expected in tests:
     ans = ask(q)
-    text = ans.lower().replace(",", "")
+    text = ans.lower().replace(",", "").replace('"', "").replace("'", "")
     ok = any(e.lower().replace(",", "") in text for e in expected)
     passed += ok
     print(("PASS" if ok else "FAIL"), "|", q, "| expected any of:", expected)
